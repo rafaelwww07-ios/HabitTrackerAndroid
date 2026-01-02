@@ -81,7 +81,7 @@ Habit Tracker - это полнофункциональное Android-прило
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/HabitTrackerAndroid.git
+git clone https://github.com/rafaelwww07-ios/HabitTrackerAndroid.git
 cd HabitTrackerAndroid
 ```
 
@@ -159,4 +159,5 @@ _Добавьте скриншоты вашего приложения здес�
 ---
 
 ⭐ Если вам понравился проект, поставьте звезду!
+
 
