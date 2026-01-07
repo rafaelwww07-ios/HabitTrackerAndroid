@@ -11,9 +11,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.ui.util.SettingsSection
 
@@ -26,10 +28,10 @@ fun SettingsView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Настройки", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.settings), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -42,40 +44,40 @@ fun SettingsView(
             contentPadding = PaddingValues(vertical = 8.dp)
         ) {
             item {
-                SettingsSection(title = "Внешний вид") {
+                SettingsSection(title = stringResource(R.string.appearance_settings)) {
                     // Theme picker would go here
                     SettingsItem(
-                        title = "Тема",
-                        subtitle = "Системная",
+                        title = stringResource(R.string.theme),
+                        subtitle = stringResource(R.string.system_default),
                         onClick = { /* TODO: Show theme picker */ }
                     )
                 }
             }
             
             item {
-                SettingsSection(title = "Данные") {
+                SettingsSection(title = stringResource(R.string.data_settings)) {
                     SettingsItem(
-                        title = "Экспорт данных",
-                        subtitle = "CSV, JSON, PDF",
+                        title = stringResource(R.string.export_data),
+                        subtitle = stringResource(R.string.export_data_subtitle),
                         onClick = { /* TODO: Show export options */ }
                     )
                     SettingsItem(
-                        title = "Импорт данных",
-                        subtitle = "Восстановить из файла",
+                        title = stringResource(R.string.import_data),
+                        subtitle = stringResource(R.string.import_data_subtitle),
                         onClick = { /* TODO: Show import options */ }
                     )
                     SettingsItem(
-                        title = "Резервное копирование",
-                        subtitle = "Создать backup",
+                        title = stringResource(R.string.backup_data),
+                        subtitle = stringResource(R.string.backup_data_subtitle),
                         onClick = { /* TODO: Show backup options */ }
                     )
                 }
             }
             
             item {
-                SettingsSection(title = "О приложении") {
+                SettingsSection(title = stringResource(R.string.about_app)) {
                     SettingsItem(
-                        title = "Версия",
+                        title = stringResource(R.string.version),
                         subtitle = "1.0.0",
                         onClick = null
                     )

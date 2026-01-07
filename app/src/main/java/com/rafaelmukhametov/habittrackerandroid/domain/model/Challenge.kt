@@ -31,11 +31,11 @@ data class Challenge(
 }
 
 enum class ChallengeTemplate(val displayName: String, val description: String, val duration: Int) {
-    THIRTY_DAYS("30-дневный вызов", "30 дней подряд без пропусков", 30),
-    PERFECT_WEEK("Идеальная неделя", "7 дней идеального выполнения", 7),
-    MORNING_ROUTINE("Утренний распорядок", "Утренние привычки 7 дней", 7),
-    EVENING_ROUTINE("Вечерний распорядок", "Вечерние привычки 7 дней", 7),
-    WEEKEND_WARRIOR("Выходной воин", "Активность на выходных", 14);
+    THIRTY_DAYS("30-Day Challenge", "30 consecutive days without skipping", 30),
+    PERFECT_WEEK("Perfect Week", "7 days of perfect completion", 7),
+    MORNING_ROUTINE("Morning Routine", "Morning habits for 7 days", 7),
+    EVENING_ROUTINE("Evening Routine", "Evening habits for 7 days", 7),
+    WEEKEND_WARRIOR("Weekend Warrior", "Activity on weekends", 14);
     
     companion object {
         fun values(): Array<ChallengeTemplate> = arrayOf(

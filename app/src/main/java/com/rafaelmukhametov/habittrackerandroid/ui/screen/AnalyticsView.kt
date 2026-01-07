@@ -12,9 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.ui.util.getIconImageVector
 import java.util.Calendar
@@ -28,10 +30,10 @@ fun AnalyticsView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Аналитика", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.analytics), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -52,7 +54,7 @@ fun AnalyticsView(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Прогнозы",
+                        text = stringResource(R.string.predictions),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -71,13 +73,13 @@ fun AnalyticsView(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Тренды",
+                        text = stringResource(R.string.trends),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Ваши привычки за последние 30 дней",
+                        text = stringResource(R.string.habits_last_30_days),
                         fontSize = 14.sp,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                     )
@@ -93,7 +95,7 @@ fun AnalyticsView(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Анализ активности",
+                        text = stringResource(R.string.analysis_activity),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -104,7 +106,7 @@ fun AnalyticsView(
                     ) {
                         Column {
                             Text(
-                                text = "Самый активный день",
+                                text = stringResource(R.string.most_active_day_text),
                                 fontSize = 12.sp,
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                             )
@@ -116,7 +118,7 @@ fun AnalyticsView(
                         }
                         Column(horizontalAlignment = Alignment.End) {
                             Text(
-                                text = "Менее активный день",
+                                text = stringResource(R.string.least_active_day),
                                 fontSize = 12.sp,
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                             )
@@ -137,7 +139,7 @@ fun AnalyticsView(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Рекомендации",
+                        text = stringResource(R.string.recommendations),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -195,7 +197,7 @@ fun PredictionCard(habit: Habit) {
                     fontWeight = FontWeight.Medium
                 )
                 Text(
-                    text = "Прогноз: $prediction",
+                    text = stringResource(R.string.forecast, prediction),
                     fontSize = 12.sp,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                 )
@@ -218,7 +220,7 @@ fun SimpleTrendChart(habits: List<Habit>) {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "График трендов (упрощенная версия)",
+            text = stringResource(R.string.trend_chart),
             fontSize = 14.sp,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
         )
@@ -230,9 +232,9 @@ private fun calculatePrediction(habit: Habit): String {
     val successRate = habit.overallCompletionPercentage()
     
     return when {
-        successRate > 80 -> "Отличный результат, продолжайте!"
-        streak > 7 -> "Хороший прогресс, стрик растет!"
-        else -> "Нужно больше активности"
+        successRate > 80 -> "Excellent result, keep it up!"
+        streak > 7 -> "Good progress, streak is growing!"
+        else -> "Need more activity"
     }
 }
 
@@ -249,7 +251,7 @@ private fun getMostActiveDay(habits: List<Habit>): String {
     }
     
     val maxIndex = dayCounts.indices.maxByOrNull { dayCounts[it] } ?: 0
-    val dayNames = listOf("Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб")
+    val dayNames = listOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
     return dayNames[maxIndex]
 }
 
@@ -266,7 +268,7 @@ private fun getLeastActiveDay(habits: List<Habit>): String {
     }
     
     val minIndex = dayCounts.indices.minByOrNull { dayCounts[it] } ?: 0
-    val dayNames = listOf("Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб")
+    val dayNames = listOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
     return dayNames[minIndex]
 }
 
@@ -276,14 +278,14 @@ private fun generateRecommendations(habits: List<Habit>): List<String> {
     habits.forEach { habit ->
         val streak = habit.currentStreak()
         if (streak == 0) {
-            recommendations.add("Начните выполнять '${habit.name}' - это поможет вам вернуться в ритм!")
+            recommendations.add("Start doing '${habit.name}' - this will help you get back in rhythm!")
         } else if (streak < 7) {
-            recommendations.add("Отличный старт с '${habit.name}'! Попробуйте дойти до 7 дней подряд!")
+            recommendations.add("Great start with '${habit.name}'! Try to reach 7 consecutive days!")
         }
     }
     
     if (recommendations.isEmpty()) {
-        recommendations.add("Вы отлично справляетесь! Продолжайте в том же духе.")
+        recommendations.add("You are doing great! Keep it up.")
     }
     
     return recommendations

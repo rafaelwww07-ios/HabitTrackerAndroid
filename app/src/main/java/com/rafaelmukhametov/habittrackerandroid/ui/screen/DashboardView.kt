@@ -12,9 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.service.MotivationService
 import com.rafaelmukhametov.habittrackerandroid.ui.util.getIconImageVector
@@ -35,10 +37,10 @@ fun DashboardView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Дашборд", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.dashboard), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -57,23 +59,23 @@ fun DashboardView(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 MetricCard(
-                    title = "Выполнено",
+                    title = stringResource(R.string.completed_count),
                     value = "$completedToday",
-                    subtitle = "из ${habits.size}",
+                    subtitle = "${stringResource(R.string.of)} ${habits.size}",
                     color = Color(0xFF4CAF50),
                     modifier = Modifier.weight(1f)
                 )
                 MetricCard(
-                    title = "Общий стрик",
+                    title = stringResource(R.string.total_streak),
                     value = "$totalStreak",
-                    subtitle = "дней",
+                    subtitle = stringResource(R.string.days),
                     color = Color(0xFFFF6B35),
                     modifier = Modifier.weight(1f)
                 )
                 MetricCard(
-                    title = "Успех",
+                    title = stringResource(R.string.success),
                     value = "${successRate.toInt()}%",
-                    subtitle = "на этой неделе",
+                    subtitle = stringResource(R.string.this_week),
                     color = Color(0xFF2196F3),
                     modifier = Modifier.weight(1f)
                 )
@@ -88,7 +90,7 @@ fun DashboardView(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Привычки на сегодня",
+                        text = stringResource(R.string.habits_for_today),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -107,7 +109,7 @@ fun DashboardView(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = "Все привычки выполнены сегодня! 🎉",
+                                text = stringResource(R.string.all_habits_completed),
                                 fontSize = 14.sp
                             )
                         }
@@ -133,7 +135,7 @@ fun DashboardView(
                                         fontWeight = FontWeight.Medium
                                     )
                                     Text(
-                                        text = "Стрик: ${habit.currentStreak()}",
+                                        text = stringResource(R.string.streak_count, habit.currentStreak()),
                                         fontSize = 12.sp,
                                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                                     )

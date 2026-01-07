@@ -8,9 +8,11 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.service.ExportService
 import com.rafaelmukhametov.habittrackerandroid.ui.util.SettingsSection
@@ -32,19 +34,27 @@ fun ExportOptionsView(
     
     val habitsToExport = if (habit != null) listOf(habit) else allHabits
     
+    // Get strings in composable context
+    val pdfExportComingSoon = stringResource(R.string.pdf_export_coming_soon)
+    val csvFileCreated = stringResource(R.string.csv_file_created)
+    val errorCreatingCsv = stringResource(R.string.error_creating_csv)
+    val jsonFileCreated = stringResource(R.string.json_file_created)
+    val errorCreatingJson = stringResource(R.string.error_creating_json)
+    val calendarExportComingSoon = stringResource(R.string.calendar_export_coming_soon)
+    
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                     Text(
-                        if (habit == null) "Экспорт данных" else "Экспорт привычки",
+                        if (habit == null) stringResource(R.string.export_options) else stringResource(R.string.export_habit),
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -57,33 +67,33 @@ fun ExportOptionsView(
             contentPadding = PaddingValues(vertical = 8.dp)
         ) {
             item {
-                SettingsSection(title = "Файлы") {
+                SettingsSection(title = stringResource(R.string.files)) {
                     SettingsItem(
-                        title = "Экспорт в PDF",
-                        subtitle = "PDF отчет",
+                        title = stringResource(R.string.export_to_pdf),
+                        subtitle = stringResource(R.string.pdf_report),
                         onClick = {
                             // TODO: Implement PDF export
-                            exportMessage = "PDF экспорт будет реализован"
+                            exportMessage = pdfExportComingSoon
                             showAlert = true
                         }
                     )
                     SettingsItem(
-                        title = "Экспорт в CSV",
-                        subtitle = "Табличный формат",
+                        title = stringResource(R.string.export_to_csv),
+                        subtitle = stringResource(R.string.table_format),
                         onClick = {
                             val csv = exportService.exportToCSV(habitsToExport)
                             val file = exportService.saveFile(csv, "habits_${System.currentTimeMillis()}.csv")
-                            exportMessage = if (file != null) "CSV файл создан успешно" else "Ошибка создания CSV"
+                            exportMessage = if (file != null) csvFileCreated else errorCreatingCsv
                             showAlert = true
                         }
                     )
                     SettingsItem(
-                        title = "Экспорт в JSON",
-                        subtitle = "JSON формат",
+                        title = stringResource(R.string.export_to_json),
+                        subtitle = stringResource(R.string.json_format),
                         onClick = {
                             val json = exportService.exportToJSON(habitsToExport)
                             val file = exportService.saveFile(json, "habits_${System.currentTimeMillis()}.json")
-                            exportMessage = if (file != null) "JSON файл создан успешно" else "Ошибка создания JSON"
+                            exportMessage = if (file != null) jsonFileCreated else errorCreatingJson
                             showAlert = true
                         }
                     )
@@ -91,13 +101,13 @@ fun ExportOptionsView(
             }
             
             item {
-                SettingsSection(title = "Интеграции") {
+                SettingsSection(title = stringResource(R.string.integrations)) {
                     SettingsItem(
-                        title = "Экспорт в календарь",
-                        subtitle = "Добавить в календарь",
+                        title = stringResource(R.string.export_to_calendar),
+                        subtitle = stringResource(R.string.add_to_calendar),
                         onClick = {
                             // TODO: Implement calendar export
-                            exportMessage = "Экспорт в календарь будет реализован"
+                            exportMessage = calendarExportComingSoon
                             showAlert = true
                         }
                     )
@@ -108,11 +118,11 @@ fun ExportOptionsView(
         if (showAlert) {
             AlertDialog(
                 onDismissRequest = { showAlert = false },
-                title = { Text("Экспорт") },
+                title = { Text(stringResource(R.string.export_title)) },
                 text = { Text(exportMessage ?: "") },
                 confirmButton = {
                     TextButton(onClick = { showAlert = false }) {
-                        Text("OK")
+                        Text(stringResource(R.string.ok))
                     }
                 }
             )

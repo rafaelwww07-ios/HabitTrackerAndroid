@@ -6,9 +6,11 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.service.ExportService
 import androidx.compose.ui.platform.LocalContext
@@ -27,13 +29,19 @@ fun BackupView(
     var showAlert by remember { mutableStateOf(false) }
     var alertMessage by remember { mutableStateOf<String?>(null) }
     
+    // Get strings in composable context
+    val createBackupSuccess = stringResource(R.string.create_backup_success)
+    val backupErrorPrefix = stringResource(R.string.backup_error)
+    val fileSaveError = stringResource(R.string.file_save_error)
+    val backupSavedPrefix = stringResource(R.string.backup_saved)
+    
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Резервное копирование", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.backup), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -55,7 +63,7 @@ fun BackupView(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     Text(
-                        text = "Резервное копирование",
+                        text = stringResource(R.string.backup),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -70,10 +78,10 @@ fun BackupView(
                                     .putString("lastBackup", backupData)
                                     .putLong("lastBackupDate", System.currentTimeMillis())
                                     .apply()
-                                alertMessage = "Резервная копия создана успешно"
+                                alertMessage = createBackupSuccess
                                 showAlert = true
                             } catch (e: Exception) {
-                                alertMessage = "Ошибка создания резервной копии: ${e.message}"
+                                alertMessage = "$backupErrorPrefix ${e.message ?: ""}"
                                 showAlert = true
                             }
                         },
@@ -82,7 +90,7 @@ fun BackupView(
                         Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
                             Text("☁️", fontSize = 20.sp)
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text("Создать резервную копию")
+                            Text(stringResource(R.string.create_backup))
                         }
                     }
                     
@@ -92,9 +100,9 @@ fun BackupView(
                                 val filename = "HabitTracker_Backup_${System.currentTimeMillis()}.json"
                                 val file = exportService.saveFile(backupData!!, filename)
                                 alertMessage = if (file != null) {
-                                    "Резервная копия сохранена: ${file.name}"
+                                    backupSavedPrefix.replace("%1\$s", file.name)
                                 } else {
-                                    "Ошибка сохранения файла"
+                                    fileSaveError
                                 }
                                 showAlert = true
                             },
@@ -106,13 +114,13 @@ fun BackupView(
                             Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
                                 Text("📤", fontSize = 20.sp)
                                 Spacer(modifier = Modifier.width(8.dp))
-                                Text("Поделиться резервной копией")
+                                Text(stringResource(R.string.share_backup))
                             }
                         }
                     }
                     
                     Text(
-                        text = "Создайте резервную копию ваших данных, чтобы не потерять прогресс. Рекомендуется делать это регулярно.",
+                        text = stringResource(R.string.backup_description),
                         fontSize = 12.sp,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                     )
@@ -123,15 +131,17 @@ fun BackupView(
         if (showAlert) {
             AlertDialog(
                 onDismissRequest = { showAlert = false },
-                title = { Text("Резервное копирование") },
+                title = { Text(stringResource(R.string.backup_title)) },
                 text = { Text(alertMessage ?: "") },
                 confirmButton = {
                     TextButton(onClick = { showAlert = false }) {
-                        Text("OK")
+                        Text(stringResource(R.string.ok))
                     }
                 }
             )
         }
     }
 }
+
+
 

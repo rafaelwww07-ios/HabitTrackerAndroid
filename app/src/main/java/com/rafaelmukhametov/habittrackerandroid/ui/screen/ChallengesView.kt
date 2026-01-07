@@ -12,9 +12,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Challenge
 import com.rafaelmukhametov.habittrackerandroid.domain.model.ChallengeTemplate
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
@@ -43,15 +45,15 @@ fun ChallengesView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Челленджи", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.challenges), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 actions = {
                     IconButton(onClick = { showCreateChallenge = true }) {
-                        Icon(Icons.Default.Add, contentDescription = "Создать челлендж")
+                        Icon(Icons.Default.Add, contentDescription = stringResource(R.string.create_challenge))
                     }
                 }
             )
@@ -73,7 +75,7 @@ fun ChallengesView(
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Активные челленджи",
+                            text = stringResource(R.string.active_challenges),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
                         )
@@ -93,7 +95,7 @@ fun ChallengesView(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Шаблоны челленджей",
+                        text = stringResource(R.string.challenge_templates),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -118,7 +120,7 @@ fun ChallengesView(
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Завершенные",
+                            text = stringResource(R.string.completed),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
                         )
@@ -176,7 +178,7 @@ fun ChallengeCard(challenge: Challenge) {
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
-                        text = "Прогресс",
+                        text = stringResource(R.string.progress),
                         fontSize = 12.sp,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                     )
@@ -200,13 +202,13 @@ fun ChallengeCard(challenge: Challenge) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "День ${challenge.currentDay} из ${challenge.duration}",
+                    text = stringResource(R.string.day_of, challenge.currentDay, challenge.duration),
                     fontSize = 12.sp,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                 )
                 if (challenge.isActive) {
                     Text(
-                        text = "Осталось: ${challenge.daysRemaining} дней",
+                        text = stringResource(R.string.remaining_days, challenge.daysRemaining),
                         fontSize = 12.sp,
                         color = Color(0xFFFF6B35)
                     )
@@ -249,15 +251,17 @@ fun TemplateChallengeCard(
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "${template.duration} дней",
+                    text = "${template.duration} ${if (template.duration == 1) stringResource(R.string.day) else stringResource(R.string.days)}",
                     fontSize = 12.sp,
                     color = Color(0xFF2196F3)
                 )
             }
             Button(onClick = onStart) {
-                Text("Начать")
+                Text(stringResource(R.string.start))
             }
         }
     }
 }
+
+
 

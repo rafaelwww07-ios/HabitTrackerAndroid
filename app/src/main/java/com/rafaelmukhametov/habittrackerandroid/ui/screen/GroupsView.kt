@@ -14,9 +14,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.domain.model.HabitGroup
 import com.rafaelmukhametov.habittrackerandroid.service.HabitGroupService
@@ -42,15 +44,15 @@ fun GroupsView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Группы привычек", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.habit_groups), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 actions = {
                     IconButton(onClick = { showCreateGroup = true }) {
-                        Icon(Icons.Default.Add, contentDescription = "Создать группу")
+                        Icon(Icons.Default.Add, contentDescription = stringResource(R.string.create_group))
                     }
                 }
             )
@@ -69,12 +71,12 @@ fun GroupsView(
                 ) {
                     Text("📁", fontSize = 60.sp)
                     Text(
-                        text = "Нет групп",
+                        text = stringResource(R.string.no_groups),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "Создайте группу для организации привычек",
+                        text = stringResource(R.string.create_group_description),
                         fontSize = 14.sp,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                     )
@@ -155,7 +157,7 @@ fun GroupRowView(
                 }
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "$habitCount привычек",
+                    text = stringResource(R.string.habits_count, habitCount),
                     fontSize = 12.sp,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                 )

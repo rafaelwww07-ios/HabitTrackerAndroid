@@ -9,21 +9,21 @@ data class MotivationalQuote(
 
 object MotivationService {
     private val quotes = listOf(
-        MotivationalQuote("Успех — это сумма небольших усилий, повторяемых изо дня в день.", "Роберт Коллье"),
-        MotivationalQuote("Привычка — это вторая натура.", "Аристотель"),
-        MotivationalQuote("Не сдавайся. Обычно ключ поворачивается на последней попытке."),
-        MotivationalQuote("Лучшее время для посадки дерева было 20 лет назад. Следующее лучшее время — сейчас.", "Китайская мудрость"),
-        MotivationalQuote("Постоянство — это секрет успеха."),
-        MotivationalQuote("Мы то, что мы делаем постоянно. Совершенство, следовательно, не действие, а привычка.", "Аристотель"),
-        MotivationalQuote("Маленькие изменения со временем приводят к большим результатам."),
-        MotivationalQuote("Не ждите идеального момента. Начните прямо сейчас."),
-        MotivationalQuote("Победа принадлежит тем, кто настойчив."),
-        MotivationalQuote("Путь в тысячу миль начинается с одного шага.", "Лао-цзы"),
-        MotivationalQuote("Каждый день — это новый шанс стать лучше."),
-        MotivationalQuote("Привычки формируют характер, характер определяет судьбу."),
-        MotivationalQuote("Успех — это не случайность. Это результат подготовки, упорного труда и извлечения уроков из неудач.", "Колин Пауэлл"),
-        MotivationalQuote("Верь в себя и все, что ты есть. Знай, что внутри тебя есть что-то большее, чем любое препятствие."),
-        MotivationalQuote("Прогресс, а не совершенство.")
+        MotivationalQuote("Success is the sum of small efforts, repeated day in and day out.", "Robert Collier"),
+        MotivationalQuote("Habit is second nature.", "Aristotle"),
+        MotivationalQuote("Don't give up. Usually the key turns on the last try."),
+        MotivationalQuote("The best time to plant a tree was 20 years ago. The next best time is now.", "Chinese Proverb"),
+        MotivationalQuote("Consistency is the secret to success."),
+        MotivationalQuote("We are what we repeatedly do. Excellence, then, is not an act, but a habit.", "Aristotle"),
+        MotivationalQuote("Small changes over time lead to big results."),
+        MotivationalQuote("Don't wait for the perfect moment. Start right now."),
+        MotivationalQuote("Victory belongs to those who are persistent."),
+        MotivationalQuote("A journey of a thousand miles begins with a single step.", "Lao Tzu"),
+        MotivationalQuote("Every day is a new chance to be better."),
+        MotivationalQuote("Habits form character, character determines destiny."),
+        MotivationalQuote("Success is no accident. It is the result of preparation, hard work, and learning from failure.", "Colin Powell"),
+        MotivationalQuote("Believe in yourself and all that you are. Know that there is something inside you greater than any obstacle."),
+        MotivationalQuote("Progress, not perfection.")
     )
     
     fun randomQuote(): MotivationalQuote {
@@ -39,14 +39,16 @@ object MotivationService {
     
     fun messageForStreak(streak: Int): String {
         return when {
-            streak == 0 -> "Начните свой путь к успеху сегодня!"
-            streak < 3 -> "Отличное начало! Продолжайте в том же духе!"
-            streak < 7 -> "Вы на правильном пути! Еще немного!"
-            streak < 14 -> "Неделя подряд! Это впечатляет!"
-            streak < 30 -> "Две недели! Вы формируете настоящую привычку!"
-            streak < 90 -> "Месяц подряд! Вы молодец!"
-            else -> "Невероятно! Вы настоящий мастер дисциплины!"
+            streak == 0 -> "Start your journey to success today!"
+            streak < 3 -> "Great start! Keep it up!"
+            streak < 7 -> "You're on the right track! Keep going!"
+            streak < 14 -> "A week in a row! That's impressive!"
+            streak < 30 -> "Two weeks! You're forming a real habit!"
+            streak < 90 -> "A month in a row! You're doing great!"
+            else -> "Incredible! You're a true master of discipline!"
         }
     }
 }
+
+
 

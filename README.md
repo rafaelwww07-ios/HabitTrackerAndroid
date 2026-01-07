@@ -1,163 +1,165 @@
 # Habit Tracker Android
 
-Приложение для отслеживания привычек на Android, созданное с использованием Jetpack Compose и современного стека Android-разработки.
+An Android habit tracking application built with Jetpack Compose and modern Android development stack.
 
-## 📱 О приложении
+![Habit Tracker App Screenshot](docs/images/app-screenshot.png)
 
-Habit Tracker - это полнофункциональное Android-приложение для создания, отслеживания и анализа ваших привычек. Приложение помогает формировать полезные привычки и отслеживать свой прогресс с помощью статистики, визуализации и игровых элементов.
+## 📱 About the App
 
-## ✨ Основные возможности
+Habit Tracker is a full-featured Android application for creating, tracking, and analyzing your habits. The app helps you build good habits and track your progress with statistics, visualizations, and gamification elements.
 
-### Управление привычками
-- ✅ Создание и редактирование привычек с настройкой целей
-- 🎨 Кастомные иконки и цвета для каждой привычки
-- 📊 Отслеживание прогресса выполнения
-- 📝 Поддержка категорий привычек
-- 🔄 Поддержка различных типов целей (дни в неделю, количество в день, и т.д.)
+## ✨ Key Features
 
-### Статистика и аналитика
-- 📈 Подробная статистика по каждой привычке
-- 📅 Календарь прогресса (heat map)
-- 📊 Графики и диаграммы активности
-- 🔍 Анализ трендов и предсказания
-- ⏰ Статистика по времени суток
-- 📉 Сравнение периодов
+### Habit Management
+- ✅ Create and edit habits with customizable goals
+- 🎨 Custom icons and colors for each habit
+- 📊 Track completion progress
+- 📝 Support for habit categories
+- 🔄 Support for various goal types (days per week, daily count, etc.)
 
-### Мотивация
-- 🏆 Система достижений и наград
-- 🎮 Геймификация (очки, уровни, значки)
-- 🔥 Отслеживание серий (streaks)
-- 🎯 Челленджи привычек
-- 📋 Шаблоны популярных привычек
+### Statistics and Analytics
+- 📈 Detailed statistics for each habit
+- 📅 Progress calendar (heat map)
+- 📊 Activity charts and graphs
+- 🔍 Trend analysis and predictions
+- ⏰ Statistics by time of day
+- 📉 Period comparison
 
-### Организация
-- 📁 Группировка привычек
-- 🔗 Триггеры привычек (если X, то Y)
-- 📝 Еженедельный обзор
-- 🎨 Красивый современный интерфейс
+### Motivation
+- 🏆 Achievement and rewards system
+- 🎮 Gamification (points, levels, badges)
+- 🔥 Streak tracking
+- 🎯 Habit challenges
+- 📋 Popular habit templates
 
-### Напоминания
-- 🔔 Настраиваемые напоминания
-- ⏰ Гибкое расписание
-- 📲 Push-уведомления
+### Organization
+- 📁 Habit grouping
+- 🔗 Habit triggers (if X, then Y)
+- 📝 Weekly review
+- 🎨 Beautiful modern interface
 
-### Экспорт и резервное копирование
-- 💾 Экспорт данных (CSV, JSON)
-- 📤 Резервное копирование
-- 📅 Экспорт в календарь
+### Reminders
+- 🔔 Customizable reminders
+- ⏰ Flexible scheduling
+- 📲 Push notifications
 
-## 🛠 Технологии
+### Export and Backup
+- 💾 Data export (CSV, JSON)
+- 📤 Backup functionality
+- 📅 Calendar export
 
-### Архитектура
+## 🛠 Technologies
+
+### Architecture
 - **MVVM** (Model-View-ViewModel)
-- **Clean Architecture** принципы
+- **Clean Architecture** principles
 
 ### UI/UX
-- **Jetpack Compose** - современный декларативный UI
-- **Material Design 3** - современный дизайн
-- **Material Icons** - красивые иконки
+- **Jetpack Compose** - modern declarative UI
+- **Material Design 3** - modern design system
+- **Material Icons** - beautiful icons
 
-### Хранение данных
-- **Room Database** - локальная база данных
-- **Flow** - реактивные потоки данных
-- **Kotlin Coroutines** - асинхронное программирование
+### Data Storage
+- **Room Database** - local database
+- **Flow** - reactive data streams
+- **Kotlin Coroutines** - asynchronous programming
 
-### Зависимости
+### Dependencies
 - Jetpack Compose
 - Room Database
-- ViewModel и LiveData
+- ViewModel and LiveData
 - Kotlin Coroutines
 - Material Icons Extended
 - Splash Screen API
 
-## 📋 Требования
+## 📋 Requirements
 
 - **Min SDK**: 24 (Android 7.0)
 - **Target SDK**: 36
 - **Kotlin**: 2.0+
 - **Gradle**: 8.0+
 
-## 🚀 Установка
+## 🚀 Installation
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
 ```bash
 git clone https://github.com/rafaelwww07-ios/HabitTrackerAndroid.git
 cd HabitTrackerAndroid
 ```
 
-2. Откройте проект в Android Studio (Hedgehog или новее)
+2. Open the project in Android Studio (Hedgehog or newer)
 
-3. Синхронизируйте Gradle файлы
+3. Sync Gradle files
 
-4. Запустите приложение на эмуляторе или реальном устройстве
+4. Run the app on an emulator or real device
 
-## 📦 Сборка
+## 📦 Building
 
-Для сборки релизной версии:
+To build a release version:
 
 ```bash
 ./gradlew assembleRelease
 ```
 
-APK файл будет находиться в `app/build/outputs/apk/release/`
+The APK file will be located in `app/build/outputs/apk/release/`
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 app/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/rafaelmukhametov/habittrackerandroid/
-│   │   │   ├── data/              # Слой данных
-│   │   │   │   ├── database/      # Room база данных
+│   │   │   ├── data/              # Data layer
+│   │   │   │   ├── database/      # Room database
 │   │   │   │   ├── dao/           # Data Access Objects
-│   │   │   │   ├── model/         # Entity модели
-│   │   │   │   └── repository/    # Репозитории
-│   │   │   ├── domain/            # Бизнес-логика
-│   │   │   │   └── model/         # Доменные модели
-│   │   │   ├── ui/                # UI слой
-│   │   │   │   ├── screen/        # Экраны приложения
-│   │   │   │   ├── theme/         # Темизация
-│   │   │   │   ├── util/          # UI утилиты
+│   │   │   │   ├── model/         # Entity models
+│   │   │   │   └── repository/    # Repositories
+│   │   │   ├── domain/            # Business logic
+│   │   │   │   └── model/         # Domain models
+│   │   │   ├── ui/                # UI layer
+│   │   │   │   ├── screen/        # App screens
+│   │   │   │   ├── theme/         # Theming
+│   │   │   │   ├── util/          # UI utilities
 │   │   │   │   └── viewmodel/     # ViewModels
-│   │   │   └── service/           # Сервисы (уведомления, геймификация)
-│   │   └── res/                   # Ресурсы
+│   │   │   └── service/           # Services (notifications, gamification)
+│   │   └── res/                   # Resources
 └── build.gradle.kts
 ```
 
-## 🎨 Скриншоты
+## 🎨 Screenshots
 
-_Добавьте скриншоты вашего приложения здесь_
+![Habit Tracker App](docs/images/app-screenshot.png)
 
-## 🤝 Вклад
+*Dashboard and Achievements screens showcasing the app's modern UI*
 
-Вклад в проект приветствуется! Пожалуйста, создайте issue или pull request.
+## 🤝 Contributing
 
-## 📄 Лицензия
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Этот проект лицензирован под Apache License 2.0 - см. файл [LICENSE](LICENSE) для деталей.
+## 📄 License
 
-## 👤 Автор
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
 
 **Rafael Mukhametov**
 
-## 🙏 Благодарности
+## 🙏 Acknowledgments
 
-- iOS версия приложения HabitTracker, которая послужила основой для этого Android приложения
-- Material Design за отличный дизайн-гайд
-- Сообщество Android разработчиков
+- iOS version of HabitTracker app, which served as the foundation for this Android application
+- Material Design for excellent design guidelines
+- Android developer community
 
 ## 📝 Changelog
 
 ### Version 1.0
-- Начальный релиз
-- Все основные функции отслеживания привычек
-- Статистика и аналитика
-- Геймификация
-- Экспорт данных
+- Initial release
+- All core habit tracking features
+- Statistics and analytics
+- Gamification
+- Data export
 
 ---
 
-⭐ Если вам понравился проект, поставьте звезду!
-
-
+⭐ If you like this project, please give it a star!

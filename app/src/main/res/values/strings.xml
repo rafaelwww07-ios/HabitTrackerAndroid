@@ -1,3 +1,232 @@
 <resources>
     <string name="app_name">Habit Tracker</string>
+    
+    <!-- Main Screen -->
+    <string name="my_habits">My Habits</string>
+    <string name="menu">Menu</string>
+    <string name="create_first_habit">Create your first habit!</string>
+    <string name="start_journey">Start your journey to a better version of yourself</string>
+    <string name="create_habit">Create Habit</string>
+    <string name="edit_habit">Edit Habit</string>
+    <string name="back">Back</string>
+    
+    <!-- Menu Items -->
+    <string name="dashboard">Dashboard</string>
+    <string name="statistics">Statistics</string>
+    <string name="analytics">Analytics</string>
+    <string name="insights">Insights</string>
+    <string name="comparison">Comparison</string>
+    <string name="weekly_review">Weekly Review</string>
+    <string name="achievements">Achievements</string>
+    <string name="challenges">Challenges</string>
+    <string name="templates">Templates</string>
+    <string name="groups">Groups</string>
+    <string name="triggers">Triggers</string>
+    <string name="heat_map_calendar">Heat Map Calendar</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="time_of_day_stats">Time of Day Stats</string>
+    <string name="export_options">Export Options</string>
+    <string name="backup">Backup</string>
+    
+    <!-- Create/Edit Habit -->
+    <string name="basic_info">Basic Information</string>
+    <string name="habit_name">Habit Name</string>
+    <string name="description_optional">Description (optional)</string>
+    <string name="category">Category</string>
+    <string name="goal_settings">Goal Settings</string>
+    <string name="goal_type">Goal Type</string>
+    <string name="goal_value">Goal Value</string>
+    <string name="appearance">Appearance</string>
+    <string name="color">Color</string>
+    <string name="icon">Icon</string>
+    <string name="reminders">Reminders</string>
+    <string name="enable_reminders">Enable Reminders</string>
+    <string name="reminder_time">Reminder Time</string>
+    <string name="days_of_week">Days of Week</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    
+    <!-- Categories -->
+    <string name="category_health">Health</string>
+    <string name="category_fitness">Fitness</string>
+    <string name="category_learning">Learning</string>
+    <string name="category_work">Work</string>
+    <string name="category_personal">Personal</string>
+    <string name="category_social">Social</string>
+    <string name="category_creativity">Creativity</string>
+    <string name="category_finance">Finance</string>
+    <string name="category_other">Other</string>
+    
+    <!-- Goal Types -->
+    <string name="goal_days_per_week">Days per Week</string>
+    <string name="goal_consecutive_days">Consecutive Days</string>
+    
+    <!-- Days of Week -->
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="monday_short">Mon</string>
+    <string name="tuesday_short">Tue</string>
+    <string name="wednesday_short">Wed</string>
+    <string name="thursday_short">Thu</string>
+    <string name="friday_short">Fri</string>
+    <string name="saturday_short">Sat</string>
+    <string name="sunday_short">Sun</string>
+    
+    <!-- Settings -->
+    <string name="appearance_settings">Appearance</string>
+    <string name="theme">Theme</string>
+    <string name="system_default">System Default</string>
+    <string name="data_settings">Data</string>
+    <string name="export_data">Export Data</string>
+    <string name="export_data_subtitle">CSV, JSON, PDF</string>
+    <string name="import_data">Import Data</string>
+    <string name="import_data_subtitle">Restore from file</string>
+    <string name="backup_data">Backup</string>
+    <string name="backup_data_subtitle">Create backup</string>
+    <string name="about_app">About</string>
+    <string name="version">Version</string>
+    
+    <!-- Export -->
+    <string name="files">Files</string>
+    <string name="export_to_pdf">Export to PDF</string>
+    <string name="pdf_report">PDF Report</string>
+    <string name="export_to_csv">Export to CSV</string>
+    <string name="table_format">Table Format</string>
+    <string name="export_to_json">Export to JSON</string>
+    <string name="json_format">JSON Format</string>
+    <string name="pdf_export_coming_soon">PDF export will be implemented</string>
+    <string name="csv_file_created">CSV file created successfully</string>
+    <string name="error_creating_csv">Error creating CSV</string>
+    <string name="json_file_created">JSON file created successfully</string>
+    <string name="error_creating_json">Error creating JSON</string>
+    
+    <!-- Backup -->
+    <string name="backup_description">Create a backup of your data to avoid losing progress. It is recommended to do this regularly.</string>
+    <string name="create_backup">Create Backup</string>
+    <string name="restore_backup">Restore Backup</string>
+    <string name="backup_title">Backup</string>
+    <string name="ok">OK</string>
+    
+    <!-- Habit Detail -->
+    <string name="streak">Streak</string>
+    <string name="days">days</string>
+    <string name="completion_rate">Completion Rate</string>
+    <string name="total_completions">Total Completions</string>
+    <string name="last_completed">Last Completed</string>
+    <string name="never">Never</string>
+    <string name="mark_complete">Mark Complete</string>
+    <string name="mark_incomplete">Mark Incomplete</string>
+    <string name="today">Today</string>
+    
+    <!-- Common -->
+    <string name="loading">Loading…</string>
+    <string name="no_data">No data</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    
+    <!-- Create Habit -->
+    <string name="new_habit">New Habit</string>
+    <string name="edit">Edit</string>
+    <string name="no_category">No Category</string>
+    <string name="export_habit">Export Habit</string>
+    <string name="export_title">Export</string>
+    <string name="integrations">Integrations</string>
+    <string name="export_to_calendar">Export to Calendar</string>
+    <string name="add_to_calendar">Add to Calendar</string>
+    <string name="calendar_export_coming_soon">Calendar export will be implemented</string>
+    <string name="create_backup_success">Backup created successfully</string>
+    <string name="backup_error">Backup error: %1$s</string>
+    <string name="backup_saved">Backup saved: %1$s</string>
+    <string name="file_save_error">Error saving file</string>
+    <string name="share_backup">Share Backup</string>
+    
+    <!-- Templates -->
+    <string name="habit_templates">Habit Templates</string>
+    <string name="search_templates">Search templates…</string>
+    <string name="add">Add</string>
+    
+    <!-- Challenges -->
+    <string name="active_challenges">Active Challenges</string>
+    <string name="challenge_templates">Challenge Templates</string>
+    <string name="completed">Completed</string>
+    <string name="start">Start</string>
+    <string name="create_challenge">Create Challenge</string>
+    <string name="day">day</string>
+    <string name="progress">Progress</string>
+    <string name="day_of">Day %1$d of %2$d</string>
+    <string name="remaining_days">Remaining: %1$d days</string>
+    
+    <!-- Dashboard -->
+    <string name="completed_count">Completed</string>
+    <string name="of">of</string>
+    <string name="total_streak">Total Streak</string>
+    <string name="success">Success</string>
+    <string name="this_week">this week</string>
+    <string name="quote_of_the_day">Quote of the Day</string>
+    
+    <!-- Habit Detail -->
+    <string name="mark_complete_short">Mark</string>
+    <string name="completed_short">Completed</string>
+    <string name="overview">Overview</string>
+    <string name="this_month">This Month</string>
+    <string name="weekly_statistics">Weekly Statistics</string>
+    <string name="no_completions_yet">No completions yet</string>
+    <string name="habits_for_today">Today\'s Habits</string>
+    <string name="all_habits_completed">All habits completed today! 🎉</string>
+    <string name="current_streak">Current Streak</string>
+    <string name="best_streak">Best Streak</string>
+    <string name="streak_count">Streak: %1$d</string>
+    <string name="progress_calendar">Progress Calendar</string>
+    <string name="weekly_progress">Weekly Progress</string>
+    <string name="recent_completions">Recent Completions</string>
+    <string name="no_completions">No completions yet</string>
+    
+    <!-- Statistics -->
+    <string name="average_success">Average Success</string>
+    <string name="most_active_day">Most Active Day</string>
+    
+    <!-- Analytics -->
+    <string name="predictions">Predictions</string>
+    <string name="trends">Trends</string>
+    <string name="habits_last_30_days">Your habits over the last 30 days</string>
+    
+    <!-- Groups -->
+    <string name="habit_groups">Habit Groups</string>
+    <string name="create_group">Create Group</string>
+    <string name="no_groups">No Groups</string>
+    <string name="create_group_description">Create a group to organize habits</string>
+    <string name="by_habits">By Habits</string>
+    <string name="active_day">Active Day</string>
+    <string name="most_active_day_text">Most Active Day</string>
+    <string name="least_active_day">Least Active Day</string>
+    <string name="analysis_activity">Activity Analysis</string>
+    <string name="recommendations">Recommendations</string>
+    <string name="forecast">Forecast: %1$s</string>
+    <string name="trend_chart">Trend Chart (simplified version)</string>
+    <string name="excellent_result">Excellent result, keep it up!</string>
+    <string name="good_progress">Good progress, streak is growing!</string>
+    <string name="need_more_activity">Need more activity</string>
+    <string name="start_habit">Start doing \'%1$s\' - this will help you get back in rhythm!</string>
+    <string name="great_start">Great start with \'%1$s\'! Try to reach 7 consecutive days!</string>
+    <string name="doing_great">You are doing great! Keep it up.</string>
+    <string name="day_short_sun">Sun</string>
+    <string name="day_short_mon">Mon</string>
+    <string name="day_short_tue">Tue</string>
+    <string name="day_short_wed">Wed</string>
+    <string name="day_short_thu">Thu</string>
+    <string name="day_short_fri">Fri</string>
+    <string name="day_short_sat">Sat</string>
+    <string name="habits_count">%1$d habits</string>
+    
+    <!-- Create Habit -->
+    <string name="goal">Goal</string>
+    <string name="target_value">Target value: %1$d</string>
+    
 </resources>

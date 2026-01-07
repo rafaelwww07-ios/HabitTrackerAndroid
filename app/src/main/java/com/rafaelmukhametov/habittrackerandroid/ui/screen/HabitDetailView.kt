@@ -13,10 +13,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.ui.component.HabitCard
 import com.rafaelmukhametov.habittrackerandroid.ui.component.ProgressCalendarView
@@ -48,7 +50,7 @@ fun HabitDetailView(
                 title = { Text(currentHabit.name, fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 actions = {
@@ -59,9 +61,9 @@ fun HabitDetailView(
                             if (currentHabit.isCompletedToday()) {
                                 Icon(Icons.Default.CheckCircle, contentDescription = null, tint = habitColor)
                                 Spacer(modifier = Modifier.width(4.dp))
-                                Text("Выполнено", color = habitColor)
+                                Text(stringResource(R.string.completed_short), color = habitColor)
                             } else {
-                                Text("Отметить", color = habitColor)
+                                Text(stringResource(R.string.mark_complete_short), color = habitColor)
                             }
                         }
                     }
@@ -125,21 +127,21 @@ fun HabitDetailView(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     StatCard(
-                        title = "Текущий стрик",
+                        title = stringResource(R.string.current_streak),
                         value = "${viewModel.currentStreak}",
                         icon = "🔥",
                         color = Color(0xFFFF6B35),
                         modifier = Modifier.weight(1f)
                     )
                     StatCard(
-                        title = "Лучший стрик",
+                        title = stringResource(R.string.best_streak),
                         value = "${viewModel.bestStreak}",
                         icon = "⭐",
                         color = Color(0xFFFFD700),
                         modifier = Modifier.weight(1f)
                     )
                     StatCard(
-                        title = "Успех",
+                        title = stringResource(R.string.success),
                         value = "${viewModel.successRate.toInt()}%",
                         icon = "✅",
                         color = Color(0xFF4CAF50),
@@ -158,7 +160,7 @@ fun HabitDetailView(
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Календарь прогресса",
+                            text = stringResource(R.string.progress_calendar),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
                         )
@@ -182,7 +184,7 @@ fun HabitDetailView(
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
-                                text = "Прогресс по неделям",
+                                text = stringResource(R.string.weekly_progress),
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Bold
                             )
@@ -203,7 +205,7 @@ fun HabitDetailView(
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Последние выполнения",
+                            text = stringResource(R.string.recent_completions),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
                         )
@@ -211,7 +213,7 @@ fun HabitDetailView(
                         val recentCompletions = currentHabit.completions.sortedByDescending { it.completedAt }.take(10)
                         if (recentCompletions.isEmpty()) {
                             Text(
-                                text = "Пока нет выполнений",
+                                text = stringResource(R.string.no_completions),
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                             )
                         } else {

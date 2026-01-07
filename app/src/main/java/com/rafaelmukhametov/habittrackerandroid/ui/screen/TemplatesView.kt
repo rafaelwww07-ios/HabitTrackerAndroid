@@ -14,9 +14,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.HabitCategory
 import com.rafaelmukhametov.habittrackerandroid.domain.model.HabitTemplate
 import com.rafaelmukhametov.habittrackerandroid.ui.util.getIconImageVector
@@ -43,10 +45,10 @@ fun TemplatesView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Шаблоны привычек", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.habit_templates), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -64,7 +66,7 @@ fun TemplatesView(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
-                placeholder = { Text("Поиск шаблонов...") },
+                placeholder = { Text(stringResource(R.string.search_templates)) },
                 leadingIcon = {
                     Icon(Icons.Default.Add, contentDescription = null)
                 }
@@ -80,7 +82,7 @@ fun TemplatesView(
                     if (templates != null && templates.isNotEmpty()) {
                         item {
                             Text(
-                                text = category.displayName,
+                                text = stringResource(category.stringResId),
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.padding(vertical = 8.dp)
@@ -154,7 +156,7 @@ fun TemplateRowView(
             
             Icon(
                 Icons.Default.Add,
-                contentDescription = "Добавить",
+                contentDescription = stringResource(R.string.add),
                 tint = Color(0xFF2196F3)
             )
         }

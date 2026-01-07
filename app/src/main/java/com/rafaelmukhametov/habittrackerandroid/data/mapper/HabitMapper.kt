@@ -11,7 +11,7 @@ import com.rafaelmukhametov.habittrackerandroid.domain.model.GoalType
 
 fun HabitEntity.toDomain(completions: List<HabitCompletion>, reminders: List<HabitReminder>): Habit {
     val category = category?.let { 
-        HabitCategory.values().find { cat -> cat.displayName == it }
+        HabitCategory.values().find { cat -> cat.name == it }
     }
     
     return Habit(
@@ -37,7 +37,7 @@ fun Habit.toEntity(): HabitEntity {
         description = description,
         colorHex = colorHex,
         iconName = iconName,
-        category = category?.displayName,
+        category = category?.name,
         goalType = goalType.ordinal,
         goalValue = goalValue,
         createdAt = createdAt,
@@ -88,4 +88,6 @@ fun HabitReminder.toEntity(): HabitReminderEntity {
         isEnabled = isEnabled
     )
 }
+
+
 

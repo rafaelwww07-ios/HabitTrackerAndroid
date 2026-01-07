@@ -17,10 +17,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.domain.model.HabitCategory
 import com.rafaelmukhametov.habittrackerandroid.domain.model.GoalType
@@ -51,14 +53,14 @@ fun CreateHabitView(
             TopAppBar(
                 title = { 
                     Text(
-                        if (viewModel.existingHabit == null) "Новая привычка" else "Редактировать",
+                        if (viewModel.existingHabit == null) stringResource(R.string.new_habit) else stringResource(R.string.edit),
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onCancel) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 actions = {
@@ -76,7 +78,7 @@ fun CreateHabitView(
                         },
                         enabled = isValid
                     ) {
-                        Text("Сохранить", fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.save), fontWeight = FontWeight.Bold)
                     }
                 }
             )
@@ -95,13 +97,13 @@ fun CreateHabitView(
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("Основная информация", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    Text(stringResource(R.string.basic_info), fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     Spacer(modifier = Modifier.height(12.dp))
                     
                     OutlinedTextField(
                         value = name,
                         onValueChange = { name = it },
-                        label = { Text("Название привычки") },
+                        label = { Text(stringResource(R.string.habit_name)) },
                         modifier = Modifier.fillMaxWidth(),
                         singleLine = true
                     )
@@ -111,7 +113,7 @@ fun CreateHabitView(
                     OutlinedTextField(
                         value = description,
                         onValueChange = { description = it },
-                        label = { Text("Описание (необязательно)") },
+                        label = { Text(stringResource(R.string.description_optional)) },
                         modifier = Modifier.fillMaxWidth(),
                         maxLines = 3
                     )
@@ -119,7 +121,7 @@ fun CreateHabitView(
                     Spacer(modifier = Modifier.height(12.dp))
                     
                     // Category Picker
-                    Text("Категория", fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                    Text(stringResource(R.string.category), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                     Spacer(modifier = Modifier.height(8.dp))
                     
                     Row(
@@ -129,7 +131,7 @@ fun CreateHabitView(
                         FilterChip(
                             selected = selectedCategory == null,
                             onClick = { selectedCategory = null },
-                            label = { Text("Без категории") }
+                            label = { Text(stringResource(R.string.no_category)) }
                         )
                         
                         HabitCategory.values().take(4).forEach { category ->
@@ -138,7 +140,7 @@ fun CreateHabitView(
                                 onClick = { 
                                     selectedCategory = if (selectedCategory == category) null else category
                                 },
-                                label = { Text(category.displayName, fontSize = 12.sp) }
+                                label = { Text(stringResource(category.stringResId), fontSize = 12.sp) }
                             )
                         }
                     }
@@ -153,11 +155,11 @@ fun CreateHabitView(
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("Внешний вид", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    Text(stringResource(R.string.appearance), fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     Spacer(modifier = Modifier.height(12.dp))
                     
                     // Color Picker
-                    Text("Цвет", fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                    Text(stringResource(R.string.color), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                     Spacer(modifier = Modifier.height(8.dp))
                     
                     LazyVerticalGrid(
@@ -201,7 +203,7 @@ fun CreateHabitView(
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     // Icon Picker
-                    Text("Иконка", fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                    Text(stringResource(R.string.icon), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                     Spacer(modifier = Modifier.height(8.dp))
                     
                     LazyVerticalGrid(
@@ -260,7 +262,7 @@ fun CreateHabitView(
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("Цель", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    Text(stringResource(R.string.goal), fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     Spacer(modifier = Modifier.height(12.dp))
                     
                     Row(
@@ -270,13 +272,13 @@ fun CreateHabitView(
                         FilterChip(
                             selected = goalType == GoalType.DAYS_PER_WEEK,
                             onClick = { goalType = GoalType.DAYS_PER_WEEK },
-                            label = { Text("Дней в неделю") }
+                            label = { Text(stringResource(GoalType.DAYS_PER_WEEK.stringResId)) }
                         )
                         
                         FilterChip(
                             selected = goalType == GoalType.CONSECUTIVE_DAYS,
                             onClick = { goalType = GoalType.CONSECUTIVE_DAYS },
-                            label = { Text("Дней подряд") }
+                            label = { Text(stringResource(GoalType.CONSECUTIVE_DAYS.stringResId)) }
                         )
                     }
                     
@@ -287,7 +289,7 @@ fun CreateHabitView(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Целевое значение: $goalValue")
+                        Text(stringResource(R.string.target_value, goalValue))
                         
                         Row {
                             IconButton(onClick = { if (goalValue > 1) goalValue-- }) {

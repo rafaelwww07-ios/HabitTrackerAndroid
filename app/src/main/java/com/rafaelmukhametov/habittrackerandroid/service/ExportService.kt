@@ -10,12 +10,12 @@ import java.util.*
 class ExportService(private val context: Context) {
     
     fun exportToCSV(habits: List<Habit>): String {
-        var csv = "Название,Описание,Категория,Создано,Всего выполнений,Текущий стрик,Процент успеха\n"
+        var csv = "Name,Description,Category,Created,Total Completions,Current Streak,Success Rate\n"
         
-        val dateFormatter = SimpleDateFormat("dd.MM.yyyy", Locale("ru"))
+        val dateFormatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         
         habits.forEach { habit ->
-            val category = habit.category?.displayName ?: "Без категории"
+            val category = habit.category?.name ?: "No Category"
             val createdDate = dateFormatter.format(Date(habit.createdAt))
             
             csv += "\"${habit.name}\",\"${habit.description}\",\"$category\",\"$createdDate\",\"${habit.completions.size}\",\"${habit.currentStreak()}\",\"${habit.overallCompletionPercentage().toInt()}%\"\n"
@@ -35,7 +35,7 @@ class ExportService(private val context: Context) {
                 "description" to habit.description,
                 "colorHex" to habit.colorHex,
                 "iconName" to habit.iconName,
-                "category" to (habit.category?.displayName ?: null),
+                "category" to (habit.category?.name ?: null),
                 "goalType" to habit.goalType.ordinal,
                 "goalValue" to habit.goalValue,
                 "createdAt" to dateFormatter.format(Date(habit.createdAt)),
@@ -118,4 +118,6 @@ class ExportService(private val context: Context) {
         }
     }
 }
+
+
 

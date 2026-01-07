@@ -14,9 +14,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.Screen
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.service.MotivationService
@@ -44,10 +46,10 @@ fun HabitListView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Мои привычки", fontSize = 24.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.my_habits), fontSize = 24.sp, fontWeight = FontWeight.Bold) },
                 actions = {
                     IconButton(onClick = { showMenu = true }) {
-                        Icon(Icons.Default.MoreVert, contentDescription = "Меню")
+                        Icon(Icons.Default.MoreVert, contentDescription = stringResource(R.string.menu))
                     }
                     
                     DropdownMenu(
@@ -55,7 +57,7 @@ fun HabitListView(
                         onDismissRequest = { showMenu = false }
                     ) {
                         DropdownMenuItem(
-                            text = { Text("Дашборд") },
+                            text = { Text(stringResource(R.string.dashboard)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Dashboard)
@@ -63,7 +65,7 @@ fun HabitListView(
                             leadingIcon = { Text("📊") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Статистика") },
+                            text = { Text(stringResource(R.string.statistics)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Statistics)
@@ -71,7 +73,7 @@ fun HabitListView(
                             leadingIcon = { Text("📈") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Аналитика") },
+                            text = { Text(stringResource(R.string.analytics)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Analytics)
@@ -79,7 +81,7 @@ fun HabitListView(
                             leadingIcon = { Text("📊") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Инсайты") },
+                            text = { Text(stringResource(R.string.insights)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Insights)
@@ -87,7 +89,7 @@ fun HabitListView(
                             leadingIcon = { Text("💡") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Сравнение") },
+                            text = { Text(stringResource(R.string.comparison)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Comparison)
@@ -95,7 +97,7 @@ fun HabitListView(
                             leadingIcon = { Text("⚖️") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Недельный обзор") },
+                            text = { Text(stringResource(R.string.weekly_review)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.WeeklyReview)
@@ -103,7 +105,7 @@ fun HabitListView(
                             leadingIcon = { Text("📅") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Активность по времени") },
+                            text = { Text(stringResource(R.string.time_of_day_stats)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.TimeOfDayStats)
@@ -111,7 +113,7 @@ fun HabitListView(
                             leadingIcon = { Text("⏰") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Челленджи") },
+                            text = { Text(stringResource(R.string.challenges)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Challenges)
@@ -119,7 +121,7 @@ fun HabitListView(
                             leadingIcon = { Text("🎯") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Шаблоны") },
+                            text = { Text(stringResource(R.string.templates)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Templates)
@@ -127,7 +129,7 @@ fun HabitListView(
                             leadingIcon = { Text("📋") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Группы") },
+                            text = { Text(stringResource(R.string.groups)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Groups)
@@ -135,7 +137,7 @@ fun HabitListView(
                             leadingIcon = { Text("📁") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Триггеры") },
+                            text = { Text(stringResource(R.string.triggers)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Triggers)
@@ -143,7 +145,7 @@ fun HabitListView(
                             leadingIcon = { Text("⚡") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Достижения") },
+                            text = { Text(stringResource(R.string.achievements)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Achievements)
@@ -151,7 +153,7 @@ fun HabitListView(
                             leadingIcon = { Text("🏆") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Профиль") },
+                            text = { Text(stringResource(R.string.profile)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Profile)
@@ -159,7 +161,7 @@ fun HabitListView(
                             leadingIcon = { Text("👤") }
                         )
                         DropdownMenuItem(
-                            text = { Text("Настройки") },
+                            text = { Text(stringResource(R.string.settings)) },
                             onClick = {
                                 showMenu = false
                                 onMenuClick(Screen.Settings)
@@ -174,7 +176,7 @@ fun HabitListView(
             FloatingActionButton(
                 onClick = onCreateHabitClick
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Добавить привычку")
+                Icon(Icons.Default.Add, contentDescription = stringResource(R.string.create_habit))
             }
         }
     ) { paddingValues ->
@@ -200,7 +202,7 @@ fun HabitListView(
                             Text("💬", fontSize = 20.sp)
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = "Цитата дня",
+                                text = quote.author ?: "Quote of the Day",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold
                             )
@@ -280,19 +282,19 @@ fun EmptyHabitsView(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "Создайте свою первую привычку!",
+            text = stringResource(R.string.create_first_habit),
             fontSize = 20.sp,
-                        fontWeight = FontWeight.SemiBold
+            fontWeight = FontWeight.SemiBold
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "Начните свой путь к лучшей версии себя",
+            text = stringResource(R.string.start_journey),
             fontSize = 14.sp,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
         )
         Spacer(modifier = Modifier.height(24.dp))
         Button(onClick = onCreateHabitClick) {
-            Text("Создать привычку")
+            Text(stringResource(R.string.create_habit))
         }
     }
 }

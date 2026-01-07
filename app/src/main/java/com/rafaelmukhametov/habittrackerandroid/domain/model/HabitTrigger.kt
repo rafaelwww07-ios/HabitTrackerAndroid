@@ -3,10 +3,10 @@ package com.rafaelmukhametov.habittrackerandroid.domain.model
 import java.util.UUID
 
 enum class TriggerCondition(val description: String) {
-    COMPLETED("Когда привычка выполнена"),
-    NOT_COMPLETED("Когда привычка не выполнена"),
-    STREAK_REACHED("Когда достигнут определенный стрик"),
-    STREAK_BROKEN("Когда стрик прерван")
+    COMPLETED("When habit is completed"),
+    NOT_COMPLETED("When habit is not completed"),
+    STREAK_REACHED("When a certain streak is reached"),
+    STREAK_BROKEN("When streak is broken")
 }
 
 data class HabitTrigger(
@@ -16,4 +16,6 @@ data class HabitTrigger(
     val condition: TriggerCondition,
     val isEnabled: Boolean = true
 )
+
+
 

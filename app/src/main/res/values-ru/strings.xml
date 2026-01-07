@@ -1,0 +1,151 @@
+<resources>
+    <string name="app_name">Трекер Привычек</string>
+    
+    <!-- Main Screen -->
+    <string name="my_habits">Мои привычки</string>
+    <string name="menu">Меню</string>
+    <string name="create_first_habit">Создайте свою первую привычку!</string>
+    <string name="start_journey">Начните свой путь к лучшей версии себя</string>
+    <string name="create_habit">Создать привычку</string>
+    <string name="edit_habit">Редактировать привычку</string>
+    <string name="back">Назад</string>
+    
+    <!-- Menu Items -->
+    <string name="dashboard">Дашборд</string>
+    <string name="statistics">Статистика</string>
+    <string name="analytics">Аналитика</string>
+    <string name="insights">Инсайты</string>
+    <string name="comparison">Сравнение</string>
+    <string name="weekly_review">Недельный обзор</string>
+    <string name="achievements">Достижения</string>
+    <string name="challenges">Челленджи</string>
+    <string name="templates">Шаблоны</string>
+    <string name="groups">Группы</string>
+    <string name="triggers">Триггеры</string>
+    <string name="heat_map_calendar">Календарь прогресса</string>
+    <string name="profile">Профиль</string>
+    <string name="settings">Настройки</string>
+    <string name="time_of_day_stats">Статистика по времени</string>
+    <string name="export_options">Экспорт данных</string>
+    <string name="backup">Резервное копирование</string>
+    
+    <!-- Create/Edit Habit -->
+    <string name="basic_info">Основная информация</string>
+    <string name="habit_name">Название привычки</string>
+    <string name="description_optional">Описание (необязательно)</string>
+    <string name="category">Категория</string>
+    <string name="goal_settings">Настройки цели</string>
+    <string name="goal_type">Тип цели</string>
+    <string name="goal_value">Значение цели</string>
+    <string name="appearance">Внешний вид</string>
+    <string name="color">Цвет</string>
+    <string name="icon">Иконка</string>
+    <string name="reminders">Напоминания</string>
+    <string name="enable_reminders">Включить напоминания</string>
+    <string name="reminder_time">Время напоминания</string>
+    <string name="days_of_week">Дни недели</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete">Удалить</string>
+    
+    <!-- Categories -->
+    <string name="category_health">Здоровье</string>
+    <string name="category_fitness">Фитнес</string>
+    <string name="category_learning">Обучение</string>
+    <string name="category_work">Работа</string>
+    <string name="category_personal">Личное</string>
+    <string name="category_social">Социальное</string>
+    <string name="category_creativity">Творчество</string>
+    <string name="category_finance">Финансы</string>
+    <string name="category_other">Другое</string>
+    
+    <!-- Goal Types -->
+    <string name="goal_days_per_week">Дней в неделю</string>
+    <string name="goal_consecutive_days">Дней подряд</string>
+    
+    <!-- Days of Week -->
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wednesday">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="saturday">Суббота</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="monday_short">Пн</string>
+    <string name="tuesday_short">Вт</string>
+    <string name="wednesday_short">Ср</string>
+    <string name="thursday_short">Чт</string>
+    <string name="friday_short">Пт</string>
+    <string name="saturday_short">Сб</string>
+    <string name="sunday_short">Вс</string>
+    
+    <!-- Settings -->
+    <string name="appearance_settings">Внешний вид</string>
+    <string name="theme">Тема</string>
+    <string name="system_default">Системная</string>
+    <string name="data_settings">Данные</string>
+    <string name="export_data">Экспорт данных</string>
+    <string name="export_data_subtitle">CSV, JSON, PDF</string>
+    <string name="import_data">Импорт данных</string>
+    <string name="import_data_subtitle">Восстановить из файла</string>
+    <string name="backup_data">Резервное копирование</string>
+    <string name="backup_data_subtitle">Создать backup</string>
+    <string name="about_app">О приложении</string>
+    <string name="version">Версия</string>
+    
+    <!-- Export -->
+    <string name="files">Файлы</string>
+    <string name="export_to_pdf">Экспорт в PDF</string>
+    <string name="pdf_report">PDF отчет</string>
+    <string name="export_to_csv">Экспорт в CSV</string>
+    <string name="table_format">Табличный формат</string>
+    <string name="export_to_json">Экспорт в JSON</string>
+    <string name="json_format">JSON формат</string>
+    <string name="pdf_export_coming_soon">PDF экспорт будет реализован</string>
+    <string name="csv_file_created">CSV файл создан успешно</string>
+    <string name="error_creating_csv">Ошибка создания CSV</string>
+    <string name="json_file_created">JSON файл создан успешно</string>
+    <string name="error_creating_json">Ошибка создания JSON</string>
+    
+    <!-- Backup -->
+    <string name="backup_description">Создайте резервную копию ваших данных, чтобы не потерять прогресс. Рекомендуется делать это регулярно.</string>
+    <string name="create_backup">Создать резервную копию</string>
+    <string name="restore_backup">Восстановить из резервной копии</string>
+    <string name="backup_title">Резервное копирование</string>
+    <string name="ok">OK</string>
+    
+    <!-- Habit Detail -->
+    <string name="streak">Серия</string>
+    <string name="days">дней</string>
+    <string name="completion_rate">Процент выполнения</string>
+    <string name="total_completions">Всего выполнено</string>
+    <string name="last_completed">Последнее выполнение</string>
+    <string name="never">Никогда</string>
+    <string name="mark_complete">Отметить выполненным</string>
+    <string name="mark_incomplete">Отметить невыполненным</string>
+    <string name="today">Сегодня</string>
+    
+    <!-- Common -->
+    <string name="loading">Загрузка…</string>
+    <string name="no_data">Нет данных</string>
+    <string name="error">Ошибка</string>
+    <string name="retry">Повторить</string>
+    
+    <!-- Create Habit -->
+    <string name="new_habit">Новая привычка</string>
+    <string name="edit">Редактировать</string>
+    <string name="no_category">Без категории</string>
+    <string name="export_habit">Экспорт привычки</string>
+    <string name="export_title">Экспорт</string>
+    <string name="integrations">Интеграции</string>
+    <string name="export_to_calendar">Экспорт в календарь</string>
+    <string name="add_to_calendar">Добавить в календарь</string>
+    <string name="calendar_export_coming_soon">Экспорт в календарь будет реализован</string>
+    <string name="create_backup_success">Резервная копия создана успешно</string>
+    <string name="backup_error">Ошибка создания резервной копии: %1$s</string>
+    <string name="backup_saved">Резервная копия сохранена: %1$s</string>
+    <string name="file_save_error">Ошибка сохранения файла</string>
+    <string name="share_backup">Поделиться резервной копией</string>
+    
+</resources>
+

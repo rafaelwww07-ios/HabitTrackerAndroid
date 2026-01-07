@@ -24,8 +24,8 @@ data class HabitTemplate(
     companion object {
         val templates = listOf(
             HabitTemplate(
-                name = "Утренняя зарядка",
-                description = "15-30 минут физических упражнений",
+                name = "Morning Exercise",
+                description = "15-30 minutes of physical exercise",
                 iconName = "directions_run",
                 colorHex = "#FF6B6B",
                 category = HabitCategory.FITNESS,
@@ -33,8 +33,8 @@ data class HabitTemplate(
                 goalValue = 5
             ),
             HabitTemplate(
-                name = "Чтение",
-                description = "Читать книги для саморазвития",
+                name = "Reading",
+                description = "Read books for self-development",
                 iconName = "menu_book",
                 colorHex = "#4ECDC4",
                 category = HabitCategory.LEARNING,
@@ -42,8 +42,8 @@ data class HabitTemplate(
                 goalValue = 7
             ),
             HabitTemplate(
-                name = "Медитация",
-                description = "Успокаивающая медитация",
+                name = "Meditation",
+                description = "Calming meditation",
                 iconName = "eco",
                 colorHex = "#95E1D3",
                 category = HabitCategory.PERSONAL,
@@ -51,8 +51,8 @@ data class HabitTemplate(
                 goalValue = 7
             ),
             HabitTemplate(
-                name = "Пить воду",
-                description = "Выпивать 8 стаканов воды",
+                name = "Drink Water",
+                description = "Drink 8 glasses of water",
                 iconName = "opacity",
                 colorHex = "#3498DB",
                 category = HabitCategory.HEALTH,
@@ -60,8 +60,8 @@ data class HabitTemplate(
                 goalValue = 7
             ),
             HabitTemplate(
-                name = "Планирование дня",
-                description = "Составлять план на день",
+                name = "Daily Planning",
+                description = "Make a plan for the day",
                 iconName = "create",
                 colorHex = "#9B59B6",
                 category = HabitCategory.WORK,
@@ -69,8 +69,8 @@ data class HabitTemplate(
                 goalValue = 5
             ),
             HabitTemplate(
-                name = "Изучение языка",
-                description = "Практика иностранного языка",
+                name = "Language Learning",
+                description = "Practice a foreign language",
                 iconName = "menu_book",
                 colorHex = "#E74C3C",
                 category = HabitCategory.LEARNING,
@@ -78,8 +78,8 @@ data class HabitTemplate(
                 goalValue = 6
             ),
             HabitTemplate(
-                name = "Спать 8 часов",
-                description = "Здоровый сон",
+                name = "Sleep 8 Hours",
+                description = "Healthy sleep",
                 iconName = "nights_stay",
                 colorHex = "#34495E",
                 category = HabitCategory.HEALTH,
@@ -87,8 +87,8 @@ data class HabitTemplate(
                 goalValue = 7
             ),
             HabitTemplate(
-                name = "Прогулка",
-                description = "Прогулка на свежем воздухе",
+                name = "Walking",
+                description = "Walk in the fresh air",
                 iconName = "directions_run",
                 colorHex = "#2ECC71",
                 category = HabitCategory.HEALTH,
@@ -96,8 +96,8 @@ data class HabitTemplate(
                 goalValue = 5
             ),
             HabitTemplate(
-                name = "Вести дневник",
-                description = "Записывать мысли и события",
+                name = "Journaling",
+                description = "Write down thoughts and events",
                 iconName = "menu_book",
                 colorHex = "#F39C12",
                 category = HabitCategory.PERSONAL,
@@ -105,8 +105,8 @@ data class HabitTemplate(
                 goalValue = 5
             ),
             HabitTemplate(
-                name = "Отказ от социальных сетей",
-                description = "Не использовать соцсети до вечера",
+                name = "Social Media Detox",
+                description = "Don't use social media until evening",
                 iconName = "psychology",
                 colorHex = "#E67E22",
                 category = HabitCategory.PERSONAL,
@@ -116,4 +116,6 @@ data class HabitTemplate(
         )
     }
 }
+
+
 

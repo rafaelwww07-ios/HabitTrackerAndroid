@@ -11,9 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rafaelmukhametov.habittrackerandroid.R
 import com.rafaelmukhametov.habittrackerandroid.domain.model.Habit
 import com.rafaelmukhametov.habittrackerandroid.ui.util.getIconImageVector
 import java.util.Calendar
@@ -34,10 +36,10 @@ fun StatisticsView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Статистика", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.statistics), fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -57,13 +59,13 @@ fun StatisticsView(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 StatCard(
-                    title = "Всего выполнений",
+                    title = stringResource(R.string.total_completions),
                     value = "$totalCompletions",
                     color = Color(0xFF2196F3),
                     modifier = Modifier.weight(1f)
                 )
                 StatCard(
-                    title = "Общий стрик",
+                    title = stringResource(R.string.total_streak),
                     value = "$totalStreak",
                     color = Color(0xFFFF6B35),
                     modifier = Modifier.weight(1f)
@@ -75,13 +77,13 @@ fun StatisticsView(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 StatCard(
-                    title = "Средний успех",
+                    title = stringResource(R.string.average_success),
                     value = "${averageCompletion.toInt()}%",
                     color = Color(0xFF4CAF50),
                     modifier = Modifier.weight(1f)
                 )
                 StatCard(
-                    title = "Активный день",
+                    title = stringResource(R.string.active_day),
                     value = mostActiveDay,
                     color = Color(0xFF9C27B0),
                     modifier = Modifier.weight(1f)
@@ -95,7 +97,7 @@ fun StatisticsView(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "По привычкам",
+                        text = stringResource(R.string.by_habits),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -191,7 +193,7 @@ private fun calculateMostActiveDay(habits: List<Habit>): String {
     }
     
     val maxIndex = dayCounts.indices.maxByOrNull { dayCounts[it] } ?: 0
-    val dayNames = listOf("Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб")
+    val dayNames = listOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
     return dayNames[maxIndex]
 }
 
